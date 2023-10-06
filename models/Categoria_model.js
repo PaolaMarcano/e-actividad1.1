@@ -1,5 +1,6 @@
 const categorias = require('../ejemplos/categorias');
-const respuesta = require('../models/Respuesta')
+const equipos = require('../ejemplos/equipos');
+const respuesta = require('../models/Respuesta');
 const { v4: uuidv4 } = require('uuid');
 
 class Categoria{
@@ -17,15 +18,33 @@ class Categoria{
 }
 
 class CategoriaModel{
-    ingresar_categoria(categoria){ //verificar que los id de modalidad existan
+    ingresar_categoria(categoria){ 
         categoria.id = uuidv4();
         let nueva_categoria = new Categoria(categoria.id, categoria.id_modalidad, categoria.nombre, categoria.descripcion, categoria.premio);
         for (let i = 0; i < categoria.reglas.length; i++) {
             nueva_categoria.agregar_reglas(categoria.reglas[i])
         }
         categorias.push(nueva_categoria);
-        let resultado = new respuesta(200, "categoria agregada con éxito", categorias); 
+        let resultado = new respuesta(200, "categoría agregada con éxito", categorias); 
         return resultado;
+    }
+    editar_categoria(id, actualizar){
+        let i = categorias.findIndex(c => c.id == id);
+        if (i !== -1) {
+            let nombre_anterior = categorias[i].nombre
+            for (let i = 0; i < equipos.length; i++) {
+                if(equipos[i].categoria == nombre_anterior){
+                    equipos[i].categoria = actualizar.nombre;
+                }
+            }
+            categorias[i] = actualizar;
+            let resultado = new respuesta(200, "categoría editado con éxito", categorias[i]); 
+            console.log(equipos)
+            return resultado;
+        }else{
+            let resultado = new respuesta(404, "no hay una categoría con ese id", undefined);
+            return resultado;
+        }
     }
 }
 

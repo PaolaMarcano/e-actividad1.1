@@ -11,9 +11,9 @@ const Equipos_Controller = require('../controllers/Equipos_Controller')
 router.post('/', Equipos_Controller.ingresar_equipo);
 
 /* PUT user. */
-//router.put('/:index');
+router.put('/:index', Equipos_Controller.editar_equipo);
 
 /* DELETE user. */
-//router.delete('/:index'); 
+router.delete('/:index', Equipos_Controller.eliminar_equipo); 
 
 module.exports = router; 

@@ -11,7 +11,7 @@ const Categoria_Controller = require('../controllers/Categoria_Controller');
 router.post('/', Categoria_Controller.ingresar_categoria);
 
 /* PUT user. */
-//router.put('/:index');
+router.put('/:index', Categoria_Controller.editar_categoria);
 
 /* DELETE user. */
 //router.delete('/:index'); 

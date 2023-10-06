@@ -6,7 +6,7 @@ const equipos = [
         email: "rodri@gmail.com",
         telefono: "0414-1234567",
         nombre_del_equipo: "Ingenieros roboticos",
-        participantes: ["Jesus", "Luis", "María"],
+        participantes: ["Rodrigo","Jesus", "Luis", "María"],
         comentario: null,
         categoria: "Modalidad sumo",
     },
@@ -17,10 +17,21 @@ const equipos = [
         email: "p4u123@gmail.com",
         telefono: "0414-1114567",
         nombre_del_equipo: "Ideas productivas",
-        participantes: ["Liliana","Antony"],
+        participantes: ["Pauline","Liliana","Antony"],
         comentario: null,
         categoria: "El objetivo:",
     },
+    {
+        id: "5d4e1300-6417-4948-b86e-b12423db9c8b",
+        representante: "Miguel",
+        modalidad: "Vehículos Autónomos",
+        email: "M1key9090@gmail.com",
+        telefono: "0412-7544567",
+        nombre_del_equipo: "Robots de la suerte",
+        participantes: ["Miguel","Orlando"],
+        comentario: null,
+        categoria: "Recolección de objetos",
+    }
 ]
 
 module.exports = equipos;

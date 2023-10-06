@@ -30,6 +30,28 @@ class EquipoModel{
         let resultado = new respuesta(200, "equipo agregado con éxito", equipos); 
         return resultado;
     }
+    editar_equipo(id, actualizar){
+        let i = equipos.findIndex(e => e.id == id);
+        if (i !== -1) {
+            equipos[i] = actualizar;
+            let resultado = new respuesta(200, "equipo editado con éxito", equipos[i]); 
+            return resultado;
+        }else{
+            let resultado = new respuesta(404, "no hay un equipo con ese id", undefined);
+            return resultado;
+        }
+    }
+    eliminar_equipo(id){
+        let i = equipos.findIndex(e => e.id == id);
+        if (i !== -1) {
+            equipos.splice(i,1);
+            let resultado = new respuesta(200, "equipo borrado con éxito", equipos); 
+            return resultado;   
+        } else {
+            let resultado = new respuesta(404, "no hay un equipo con ese id", undefined);
+            return resultado;
+        } 
+    }
 }
 
 module.exports = new EquipoModel(); 
