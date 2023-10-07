@@ -1,4 +1,6 @@
 const equipos = require('../ejemplos/equipos');
+const categorias = require('../ejemplos/categorias');
+const modalidades = require('../ejemplos/modalidades');
 const respuesta = require('../models/Respuesta')
 const { v4: uuidv4 } = require('uuid');
 
@@ -28,7 +30,7 @@ class EquipoModel{
         }
         equipos.push(nuevo_equipo);
         let resultado = new respuesta(200, "equipo agregado con éxito", equipos); 
-        return resultado;
+        return resultado; 
     }
     editar_equipo(id, actualizar){
         let i = equipos.findIndex(e => e.id == id);
@@ -46,6 +48,18 @@ class EquipoModel{
         if (i !== -1) {
             equipos.splice(i,1);
             let resultado = new respuesta(200, "equipo borrado con éxito", equipos); 
+            return resultado;   
+        } else {
+            let resultado = new respuesta(404, "no hay un equipo con ese id", undefined);
+            return resultado;
+        } 
+    }
+    eliminar_categoria_inscrita(id){
+        let i = equipos.findIndex(e => e.id == id);
+        if (i !== -1) {
+            equipos[i].modalidad = null;
+            equipos[i].categoria = null;
+            let resultado = new respuesta(200, "categoría inscrita borrada con éxito", equipos[i]); 
             return resultado;   
         } else {
             let resultado = new respuesta(404, "no hay un equipo con ese id", undefined);

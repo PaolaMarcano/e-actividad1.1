@@ -16,6 +16,11 @@ class EquipoController{
         let eliminar = Equipo_model.eliminar_equipo(id);
         res.status(eliminar.codigo).send(eliminar);   
     }
+    eliminar_categoria_inscrita(req, res, next){
+        let id = req.params.index;
+        let eliminar_categoria = Equipo_model.eliminar_categoria_inscrita(id);
+        res.status(eliminar_categoria.codigo).send(eliminar_categoria);  
+    }
 }
 
 module.exports = new EquipoController();

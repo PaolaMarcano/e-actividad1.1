@@ -16,4 +16,6 @@ router.put('/:index', Equipos_Controller.editar_equipo);
 /* DELETE user. */
 router.delete('/:index', Equipos_Controller.eliminar_equipo); 
 
+router.delete('/sin_categoria/:index', Equipos_Controller.eliminar_categoria_inscrita); 
+
 module.exports = router; 
