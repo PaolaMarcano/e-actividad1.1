@@ -18,7 +18,7 @@ const usuarios = [
     { 
       id: "e6072621-f346-435a-aa04-3ee4f2bef800",
       usuario: 'Jeane' 
-    } 
+    }  
 ]
 
 module.exports = usuarios;
