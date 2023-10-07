@@ -14,6 +14,6 @@ router.post('/', Categoria_Controller.ingresar_categoria);
 router.put('/:index', Categoria_Controller.editar_categoria);
 
 /* DELETE user. */
-//router.delete('/:index'); 
+router.delete('/:index', Categoria_Controller.eliminar_categoria); 
 
 module.exports = router; 

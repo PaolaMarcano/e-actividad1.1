@@ -31,12 +31,6 @@ class CategoriaModel{
     editar_categoria(id, actualizar){
         let i = categorias.findIndex(c => c.id == id);
         if (i !== -1) {
-            let nombre_anterior = categorias[i].nombre
-            for (let i = 0; i < equipos.length; i++) {
-                if(equipos[i].categoria == nombre_anterior){
-                    equipos[i].categoria = actualizar.nombre;
-                }
-            }
             categorias[i] = actualizar;
             let resultado = new respuesta(200, "categoría editado con éxito", categorias[i]); 
             console.log(equipos)
@@ -45,6 +39,24 @@ class CategoriaModel{
             let resultado = new respuesta(404, "no hay una categoría con ese id", undefined);
             return resultado;
         }
+    }
+    eliminar_categoria(id){
+        let i = categorias.findIndex(c => c.id == id);
+        if (i !== -1) {
+            let nombre = categorias[i].nombre
+            for (let i = 0; i < equipos.length; i++) {
+                if(equipos[i].categoria == nombre){
+                    equipos.splice(i,1);
+                }
+            }
+            categorias.splice(i,1);
+            let resultado = new respuesta(200, "categoría borrada con éxito", undefined); 
+            console.log(equipos)
+            return resultado;   
+        } else {
+            let resultado = new respuesta(404, "no hay una categoría con ese id", undefined);
+            return resultado;
+        } 
     }
 }
 
