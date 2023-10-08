@@ -42,10 +42,10 @@ class CategoriaModel{
     eliminar_categoria(id){
         let i = categorias.findIndex(c => c.id == id);
         if (i !== -1) {
-            let nombre = categorias[i].nombre
+            let id_cat = categorias[i].id
             if(equipos.length > 0){
                 for (let i = 0; i < equipos.length; i++) {
-                    if(equipos[i].categoria == nombre){
+                    if(equipos[i].categoria == id_cat){
                         equipos.splice(i,1);
                     }
                 }
