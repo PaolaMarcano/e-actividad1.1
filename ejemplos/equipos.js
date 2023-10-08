@@ -31,7 +31,7 @@ const equipos = [
         participantes: ["Miguel","Orlando"],
         comentario: null,
         categoria: "55714699-a348-41ed-b805-66232dce77ef", //Recolección de objetos
-    }
+    } 
 ]
 
 module.exports = equipos;

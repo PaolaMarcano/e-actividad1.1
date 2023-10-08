@@ -16,6 +16,18 @@ class CategoriaController{
         let eliminar = Categoria_model.eliminar_categoria(id);
         res.status(eliminar.codigo).send(eliminar);  
     }
+    mostrar_categorias(){
+        let mostrar = Categoria_model.mostrar_categorias();
+        if(mostrar){
+            return mostrar; 
+        }else{
+            return mostrar;
+        }   
+    }
+    ver_equipos_por_categoria(req, res, next){
+        let mostrarEq= Categoria_model.ver_equipos_por_categoria(req.params.index);
+        res.status(mostrarEq.codigo).send(mostrarEq.resultado)
+    }
 }
 
 module.exports = new CategoriaController();

@@ -4,6 +4,7 @@ const Categoria_Controller = require('../controllers/Categoria_Controller');
 
 /* GET user. */
 //router.get('/');
+router.get('/:index', Categoria_Controller.ver_equipos_por_categoria);
 
 //router.get('/:index');
 

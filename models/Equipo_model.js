@@ -1,6 +1,5 @@
 const equipos = require('../ejemplos/equipos');
 const categorias = require('../ejemplos/categorias');
-const modalidades = require('../ejemplos/modalidades');
 const respuesta = require('../models/Respuesta')
 const { v4: uuidv4 } = require('uuid');
 
@@ -32,6 +31,23 @@ class EquipoModel{
         let resultado = new respuesta(200, "equipo agregado con éxito", equipos); 
         return resultado; 
     }
+    ver_equipos(){
+        if(equipos.length > 0){
+            console.log("Los equipos son:", equipos);
+            let resultado = new respuesta(200, "consulta de equipos completada con éxito", equipos); 
+            return resultado;
+        }else{
+            let resultado = new respuesta(404, "no hay equipos registrados", undefined);
+            return resultado;
+        }
+    }  
+    ver_equipos_views(){
+        if(equipos.length > 0){ 
+            return equipos;
+        }else{
+            return equipos;
+        }
+    }  
     editar_equipo(id, actualizar){
         let i = equipos.findIndex(e => e.id == id);
         if (i !== -1) {

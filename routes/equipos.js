@@ -1,11 +1,21 @@
 var express = require('express');
 var router = express.Router();
 const Equipos_Controller = require('../controllers/Equipos_Controller')
+const Categoria_Controller = require('../controllers/Categoria_Controller');
 
 /* GET user. */
-//router.get('/');
+//router.get('/', Equipos_Controller.ver_equipos);
 
 //router.get('/:index');
+
+router.get('/', Equipos_Controller.ver_equipos);
+
+router.get('/verEquipos',function(req, res, next){
+    let equipos = Equipos_Controller.ver_equipos_views()
+    let categorias = Categoria_Controller.mostrar_categorias()
+    console.log(equipos)
+   res.render('verEquipos',{title: 'Equipos', equipos: equipos, categorias: categorias});
+})  
 
 /* POST new user. */
 router.post('/', Equipos_Controller.ingresar_equipo);

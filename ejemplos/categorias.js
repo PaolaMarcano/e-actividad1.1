@@ -22,7 +22,7 @@ const categorias = [
         descripcion: "Para esta modalidad, se presenta un problema de una industria. El objetivo es presentar un prototipo que proponga una solución al problema.",
         reglas: ["Gana el equipo de participantes que presente la mejor propuesta.", "El jurado debe considerarlo como una solución aceptable al problema presentado", "El prototipo debe ser funcional y representar el problema y la solución."],
         premio: 500
-    }
+    } 
 ]
 
 module.exports = categorias;

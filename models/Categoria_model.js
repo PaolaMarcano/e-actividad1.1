@@ -33,7 +33,6 @@ class CategoriaModel{
         if (i !== -1) {
             categorias[i] = actualizar;
             let resultado = new respuesta(200, "categoría editado con éxito", categorias[i]); 
-            console.log(equipos)
             return resultado;
         }else{
             let resultado = new respuesta(404, "no hay una categoría con ese id", undefined);
@@ -44,9 +43,11 @@ class CategoriaModel{
         let i = categorias.findIndex(c => c.id == id);
         if (i !== -1) {
             let nombre = categorias[i].nombre
-            for (let i = 0; i < equipos.length; i++) {
-                if(equipos[i].categoria == nombre){
-                    equipos.splice(i,1);
+            if(equipos.length > 0){
+                for (let i = 0; i < equipos.length; i++) {
+                    if(equipos[i].categoria == nombre){
+                        equipos.splice(i,1);
+                    }
                 }
             }
             categorias.splice(i,1);
@@ -57,6 +58,28 @@ class CategoriaModel{
             let resultado = new respuesta(404, "no hay una categoría con ese id", undefined);
             return resultado;
         } 
+    }
+    mostrar_categorias(){
+        if(categorias.length > 0){ 
+            return categorias;
+        }else{
+            return categorias;
+        }
+    }
+    ver_equipos_por_categoria(id){
+        if(equipos.length > 0){
+            var contequipos=[];
+            for(let i=0; i< equipos.length;i++){
+                if (equipos[i].categoria === id){
+                    contequipos.push(equipos[i])
+                }
+            }
+            let resultado = new respuesta(200, "consulta de equipos completada con éxito", contequipos);
+            return resultado;
+        }else{
+            let resultado = new respuesta(404, "no hay equipos registrados", undefined);
+            return resultado;  
+        }
     }
 }
 
